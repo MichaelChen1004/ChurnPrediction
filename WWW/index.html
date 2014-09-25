@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Telecom Customer Potential Churn Prediction</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>Telecom Customer Potential Churn Prediction</h1>
+
+<p><em>Author: Kewen Chen</em></p>
+
+<h2>App Introduction</h2>
+
+<p>This Shiny app was created to help telecom companies to predict which current existing customers have the potential of churning by using detailed account information of those customers. Through predicting the potential churn, the telecom company may be able to act in advance to try to keep those customers by providing some attractive service promotions or some sort of discounts, this is indeed necessary and essential for business growth in this much competitive and aggressive market. </p>
+
+<p>The predicton model was trained on the dataset provided by <a href="http://www.sgi.com/tech/mlc/db/">http://www.sgi.com/tech/mlc/db/</a>, all the data are based on claims similar to real world. The accuracy rate of the model prediction is 95.7%, 95% CI from 94.8% to 96.8%, and sensitivity is 99.5%, based on 1667 lines of real testing data also provided by the same site, so the model did a really nice job. </p>
+
+<h2>Run the App</h2>
+
+<p>The App on the site is ready to use, the <a href="Selection_002.png">snapshot</a> shown is how the App looks like. The left side panel is for users to input the customer account and usage information, through this information the App can predict whether or not the customers have the potential to churn. </p>
+
+<p><strong>Users have two options to input the account information:</strong></p>
+
+<ol>
+<li><p>Upload .csv file: Comes with this App there is an example file named exampleAccounts.csv which could be used as a templet to make your customer account usage file, also the examples in that file could be used to test if the App works; </p></li>
+<li><p>Manually enter the account information: Under the uploading section sits the manually input section which could be used to manually add account information one by one to do the prediction job, fill in the fields as the page instructed, hit the button &ldquo;Submit&rdquo; each time you finished entering one account.</p></li>
+</ol>
+
+<p><em>Explanation of each account field is shown at the bottom.</em></p>
+
+<p><strong>To predict the churn accounts</strong></p>
+
+<p>Button <em>Predict</em>: After either uploading account file or manually entering the data, the accounts information will be displayed right away on the right main panel of the page, by clicking on button &ldquo;Predict&rdquo;, the App will spit out a list of potentially churn accounts which will be right under the full account list.</p>
+
+<p>Button <em>Download</em>: This button is a handy feature which is used to download the predicted churn list to your local drived to be saved as a .csv file.</p>
+
+<h2>Account field explanation:</h2>
+
+<ul>
+<li>phone.number: 10 digits customer phone number.</li>
+<li>account.length: Days since the account activated.</li>
+<li>international.plan: yes/no.</li>
+<li>voice.mail.plan: yes/no.</li>
+<li>number.vmail.messages: Total number of voice mail messages in this account.</li>
+<li>total.day.minutes: Accumulated total call minutes during daytime.</li>
+<li>total.day.calls: Accumulated total number of calls during daytime.</li>
+<li>total.day.charge: Total charged amount for calls during daytime.</li>
+<li>total.eve.minutes: Accumulated total call minutes during evening.</li>
+<li>total.eve.calls: Accumulated total number of calls during evening.</li>
+<li>total.eve.charge: Total charged amount for calls during evening.</li>
+<li>total.night.minutes: Accumulated total call minutes during night.</li>
+<li>total.night.calls: Accumulated total number of calls during night.</li>
+<li>total.night.charge: Total charged amount for calls during night.</li>
+<li>total.intl.minutes: Total international call minutes.</li>
+<li>total.intl.calls: Total number of international calls.</li>
+<li>total.intl.charge: Total charged amount for international calls.</li>
+<li>number.customer.service.calls: Total number of customer service calls.</li>
+</ul>
+
+</body>
+
+</html>
