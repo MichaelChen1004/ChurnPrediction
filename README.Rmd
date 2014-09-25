@@ -15,7 +15,7 @@ The App on the site is ready to use, the [snapshot](Selection_002.png) shown is 
 
 **Users have two options to input the account information:**
 
-1. Upload .csv file: Comes with this App there is an example file named exampleAccounts.csv which could be used as a templet to make your customer account usage file, also the examples in that file could be used to test if the App works; 
+1. Upload .csv file: Comes with this App there is an example file named [exampleAccounts.csv](http://michaelchen1004.github.io/ChurnPrediction/exampleAccounts.csv) which could be used as a templet to make your customer account usage file, also the examples in that file could be used to test if the App works; 
 
 2. Manually enter the account information: Under the uploading section sits the manually input section which could be used to manually add account information one by one to do the prediction job, fill in the fields as the page instructed, hit the button "Submit" each time you finished entering one account.
 

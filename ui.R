@@ -1,4 +1,6 @@
 library(shiny)
+library(stats)
+library(caret)
 
 shinyUI(fluidPage(
     titlePanel("Customer Churn Prediction"),
