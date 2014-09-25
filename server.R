@@ -1,5 +1,10 @@
 library(shiny)
-load("churnModel.Rdata")   # load the trained final predictive model.
+library(stats)
+library(caret)
+library(randomForest)
+# load the trained final predictive model.
+con <- url("http://michaelchen1004.github.io/ChurnPrediction/churnModel.Rdata")
+load(con)   
 
 shinyServer(function(input, output) {
     
